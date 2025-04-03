@@ -91,4 +91,4 @@ Untuk mengetahui route yang ditambahkan sudah benar, buka CLI dan jalankan perin
 
 tambahkan code berikut dalam **app/Controllers/Page.php & Home.page**
 
-![App Screenshot](./screnshoot/8Page.php%20&%20Home.php.png)
+![App Screenshot](./screnshoot/8Page.png)
