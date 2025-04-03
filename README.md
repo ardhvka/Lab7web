@@ -124,66 +124,53 @@ tambahkan code berikut dalam **app/Controllers/Page.php & Home.page**
 ### Config Koneksi Database
 
 Lakukan Config untuk menghubungkan dengan database server pada file `.env`
-![App Screenshot](./screnshoot/13Setting.ENV.png)
+![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/13Setting.ENV.png)
 
 ### Membuat Artikel Model
 
 Model ini menentukan hubungan antar data dan bagaimana data dapat diakses serta dimanipulasi. Membuat model untuk mengakses data artikel `app/Models`
 
-![App Screenshot](./screnshoot/13MembuatArtikelModels.png)
+![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/13MembuatArtikelModels.png)
 
 ### Membuat Controller
 
 Pada direktori `app/Controllers/Home.php` buat Controller pada func index
-![App Screenshot](./screnshoot/14MembuatControllerHome.png)
+![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/14MembuatControllerHome.png)
 
 ### Buat Perubahan Kecil Pada `Routes.php`
 
-![App Screenshot](./screnshoot/15RoutesPHP.png)
+![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/15RoutesPHP.png)
 
 ### Ubah `Home.php` menjadi
 
-![App Screenshot](./screnshoot//16Ubahhome.php.png)
+![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/16Ubahhome.php.png)
 
 ### Membuat Artikel Sementara di PHPMyAdmin
 
-![App Screenshot](./screnshoot/17BuatArtikelSementara.png)
+![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/17BuatArtikelSementara.png)
 
 ### Membuat Tampilan Detail Artikel
 
 1. Ubah func Artikel pada `app/Controllers/Page.php`
-   ![App Screenshot](./screnshoot/18ubahFuncArtikel.png)
+   ![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/18ubahFuncArtikel.png)
 
 2. Membuat View baru di app/Views/artikel.php dan membuat routing baru di `app/Config/Routes.php`
    dan ubah dengan code
    **$routes->get('page/artikel/(:any)', 'Page::artikel/$1');**
-   ![App Screenshot](./screnshoot/19buatartikel.phpViews.png)
+   ![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/19buatartikel.phpViews.png)  
 
 3. Hasil
-   ![App Screenshot](./screnshoot/20hasilDetailArtikel.png)
-
+    ![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/20hasilDetailArtikel.png)  
 ### Membuat Menu Admin
 
 1.  Membuat Method baru pada Controllers `app/Controllers/Artikel.php` dengan nama **admin_index()**
-    ![App Screenshot](./screnshoot/21MembuatControllerArtikel.php.png)
-
+    ![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/21MembuatControllerArtikel.php.png) 
+    
 2.  Menuju direktori `app/Views` lalu buat **admin_index.php**
-    ![App Screenshot](./screnshoot/22BuatAdminIndex.png)
+     ![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/22BuatAdminIndex.png)
 
 3.  Tambah routes di `app/Config/Routes.php` untuk menu admin
-    ![App Screenshot](./screnshoot/23TambahRoutes.php.png)
-
-4.  Hasil Output
-    ![App Screenshot](./screnshoot/25hasilAdmin.png)
-
-### Menambah Data Artikel
-
-1. Menambah Func baru pada `app/Controllers/Artikel.php dengan **Add()**
-   ![App Screenshot](./screnshoot/23TambahFungsiAdd.png)
-
-2. Buat **add.php** di `app/Views` untuk form tambah artikel
-   ![App Screenshot](./screnshoot/24BuatAdd.phpDiViews.png)
-
+    
 3. Hasil Output
    ![App Screenshot](./screnshoot/25hasilAdd.png)
    ![App Screenshot](./screnshoot/25HasilAdd1.png)
