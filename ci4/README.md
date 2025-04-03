@@ -92,3 +92,72 @@ Untuk mengetahui route yang ditambahkan sudah benar, buka CLI dan jalankan perin
 tambahkan code berikut dalam **app/Controllers/Page.php & Home.page**
 
 ![App Screenshot](./screnshoot/8Page.png)
+
+### 5. Membuat View
+
+1. Buat File app/Views/about.php app/Views/artikel.php app/Views/contact.php app/Views/home.php:
+2. Tambahkan code pada ke 4 file diatas:
+
+![App Screenshot](./screnshoot/10codeDalamView.png)
+
+### 6. Membuat Layout
+
+1. Buat direktori layout yang di dalamnya berisi file `main.php`
+
+![App Screenshot](./screnshoot/10buatmain.php.png)
+
+2. buat di file `style.css` di dalam direktori public
+
+![App Screenshot](./screnshoot/11buatStyle.css.png)
+
+### 7. Hasil Output
+
+![App Screenshot](./screnshoot/12HasilAbout.php.png)
+
+# Praktikum 2
+
+### Membuat Database dan Tabel
+
+![App Screenshot](./screnshoot/12MembuatDataBase.png)
+
+### Config Koneksi Database
+
+Lakukan Config untuk menghubungkan dengan database server pada file `.env`
+![App Screenshot](./screnshoot/13Setting.ENV.png)
+
+### Membuat Artikel Model
+
+Model ini menentukan hubungan antar data dan bagaimana data dapat diakses serta dimanipulasi. Membuat model untuk mengakses data artikel `app/Models`
+
+![App Screenshot](./screnshoot/13MembuatArtikelModels.png)
+
+### Membuat Controller
+
+Pada direktori `app/Controllers/Home.php` buat Controller pada func index
+![App Screenshot](./screnshoot/14MembuatControllerHome.png)
+
+### Buat Perubahan Kecil Pada `Routes.php`
+
+![App Screenshot](./screnshoot/15RoutesPHP.png)
+
+### Ubah `Home.php` menjadi
+
+![App Screenshot](./screnshoot//16Ubahhome.php.png)
+
+### Membuat Artikel Sementara di PHPMyAdmin
+
+![App Screenshot](./screnshoot/17BuatArtikelSementara.png)
+
+### Membuat Tampilan Detail Artikel
+
+1. Ubah func Artikel pada `app/Controllers/Page.php`
+
+![App Screenshot](./screnshoot/18ubahFuncArtikel.png)
+
+2. Membuat View baru di app/Views/artikel.php dan membuat routing baru di `app/Config/Routes.php`
+   dan ubah dengan code
+   **$routes->get('page/artikel/(:any)', 'Page::artikel/$1');**
+   ![App Screenshot](./screnshoot/19buatartikel.phpViews.png)
+
+3. Hasil
+   ![App Screenshot](./screnshoot/20hasilDetailArtikel.png)
