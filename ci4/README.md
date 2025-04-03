@@ -103,12 +103,10 @@ tambahkan code berikut dalam **app/Controllers/Page.php & Home.page**
 ### 6. Membuat Layout
 
 1. Buat direktori layout yang di dalamnya berisi file `main.php`
-
-![App Screenshot](./screnshoot/10buatmain.php.png)
+   ![App Screenshot](./screnshoot/10buatmain.php.png)
 
 2. buat di file `style.css` di dalam direktori public
-
-![App Screenshot](./screnshoot/11buatStyle.css.png)
+   ![App Screenshot](./screnshoot/11buatStyle.css.png)
 
 ### 7. Hasil Output
 
@@ -151,8 +149,7 @@ Pada direktori `app/Controllers/Home.php` buat Controller pada func index
 ### Membuat Tampilan Detail Artikel
 
 1. Ubah func Artikel pada `app/Controllers/Page.php`
-
-![App Screenshot](./screnshoot/18ubahFuncArtikel.png)
+   ![App Screenshot](./screnshoot/18ubahFuncArtikel.png)
 
 2. Membuat View baru di app/Views/artikel.php dan membuat routing baru di `app/Config/Routes.php`
    dan ubah dengan code
@@ -161,3 +158,85 @@ Pada direktori `app/Controllers/Home.php` buat Controller pada func index
 
 3. Hasil
    ![App Screenshot](./screnshoot/20hasilDetailArtikel.png)
+
+### Membuat Menu Admin
+
+1.  Membuat Method baru pada Controllers `app/Controllers/Artikel.php` dengan nama **admin_index()**
+    ![App Screenshot](./screnshoot/21MembuatControllerArtikel.php.png)
+
+2.  Menuju direktori `app/Views` lalu buat **admin_index.php**
+    ![App Screenshot](./screnshoot/22BuatAdminIndex.png)
+
+3.  Tambah routes di `app/Config/Routes.php` untuk menu admin
+    ![App Screenshot](./screnshoot/23TambahRoutes.php.png)
+
+4.  Hasil Output
+    ![App Screenshot](./screnshoot/25hasilAdmin.png)
+
+### Menambah Data Artikel
+
+1. Menambah Func baru pada `app/Controllers/Artikel.php dengan **Add()**
+   ![App Screenshot](./screnshoot/23TambahFungsiAdd.png)
+
+2. Buat **add.php** di `app/Views` untuk form tambah artikel
+   ![App Screenshot](./screnshoot/24BuatAdd.phpDiViews.png)
+
+3. Hasil Output
+   ![App Screenshot](./screnshoot/25hasilAdd.png)
+   ![App Screenshot](./screnshoot/25HasilAdd1.png)
+
+### Edit Data
+
+1. Menambahkan func baru pada `app/Controllers/Artikel.php` dengan nama **edit($id)**
+   ![App Screenshot](./screnshoot/26EditPhp.png)
+
+2. Buat `edit.php` di `app/Views` untuk form edit artikel
+   ![App Screenshot](./screnshoot/26editphphtml.png)
+
+3. Hasil Output
+   ![App Screenshot](./screnshoot/25HasilEdit.png)
+
+### Menghapus Data
+
+1. Tambah Func baru pada `app/Controllers/Artikel.php` dengan nama **delete($id)**
+   ![App Screenshot](./screnshoot/27DeletePHP.png)
+2. Hasil Output "P" terhapus
+   ![App Screenshot](./screnshoot/25HasilAdd1.png)
+   ![App Screenshot](./screnshoot/25HasilDelete.png)
+
+# Praktikum 3
+
+### Membuat Class View Cell
+
+Membuat Direktori Cells di dalam `app` lalu buat file `Artikel.php` pada `app/Cells`
+![App Screenshot](./screnshoot/28aViewCels.png)
+
+### Membuat View untuk View Cells
+
+1. Lakukan perubahan field pada database dengan menambahkan tanggal agar dapat mengambil data artikel terbaru
+   ![App Screenshot](./screnshoot/29aMembuatdatabaru.png)
+2. Buat folder component di `app/Views` yang didalamnya berisi `artikel_katgori.php & artikel_terkini.php`
+   ![App Screenshot](./screnshoot/29bMembuatArtikelTerkini.png)
+3. Isikan code di dalam file `artikel_terkini.php`
+   ![App Screenshot](./screnshoot/29c.png)
+4. Modifikasi `app/Views/layout/main.php`
+   ![App Screenshot](./screnshoot/29dModifikasiLayout.png)
+
+### Mengubah Views Cells agar Menampilkan Kategori tertentu
+
+1. Menambahkan data baru / column baru untuk kategori
+   ![App Screenshot](./screnshoot/29dMembuatColumnDataKategori.png)
+2. Modifikasi model di `app/Models/ArtikelModel.php
+   ![App Screenshot](./screnshoot/30aModifikasiArtikelMoels.png)
+3. Membuat File `ArtikelKategori.php` baru pada folder `app/Cells`
+   ![App Screenshot](./screnshoot/30cMembuatFileArtikelKategori.png)
+4. Membuat file `artikel_kategori.php` baru pada folder `app/Views/components`.
+   ![App Screenshot](./screnshoot/30dMembuatartikel_kategori.php.png)
+5. Modifikasi code di file `app/Views/layout/main.php`
+   ![App Screenshot](./screnshoot/30dModifLyout.php.png)
+6. Tambahkan code berikut di file `app/Config/Routes.php`
+   ![App Screenshot](./screnshoot/30eTambahRoutes.png)
+7. Tambah Method kategori controller di `app/Controllers/Home.php`
+   ![App Screenshot](./screnshoot/30fModifHome.php.png)
+8. Hasil Output
+   ![App Screenshot](./screnshoot/LASSTTTT.png)
