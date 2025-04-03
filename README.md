@@ -160,7 +160,8 @@ Pada direktori `app/Controllers/Home.php` buat Controller pada func index
    ![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/19buatartikel.phpViews.png)  
 
 3. Hasil
-    ![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/20hasilDetailArtikel.png)  
+    ![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/20hasilDetailArtikel.png)
+   
 ### Membuat Menu Admin
 
 1.  Membuat Method baru pada Controllers `app/Controllers/Artikel.php` dengan nama **admin_index()**
@@ -170,63 +171,74 @@ Pada direktori `app/Controllers/Home.php` buat Controller pada func index
      ![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/22BuatAdminIndex.png)
 
 3.  Tambah routes di `app/Config/Routes.php` untuk menu admin
-    
+    ![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/23TambahRoutes.php.png)
+
+4. Hasil Output
+    ![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/25HasilAdmin.png)
+
+### Menambah Data Artikel
+
+1. Menambah Func baru pada `app/Controllers/Artikel.php dengan **Add()**
+   ![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/23TambahFungsiAdd.png)
+
+2. Buat **add.php** di `app/Views` untuk form tambah artikel
+   ![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/24BuatAdd.phpDiViews.png)
 3. Hasil Output
-   ![App Screenshot](./screnshoot/25hasilAdd.png)
-   ![App Screenshot](./screnshoot/25HasilAdd1.png)
+   ![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/25hasilAdd.png)
+   ![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/25HasilAdd1.png)
 
 ### Edit Data
 
 1. Menambahkan func baru pada `app/Controllers/Artikel.php` dengan nama **edit($id)**
-   ![App Screenshot](./screnshoot/26EditPhp.png)
+   ![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/26EditPhp.png)
 
 2. Buat `edit.php` di `app/Views` untuk form edit artikel
-   ![App Screenshot](./screnshoot/26editphphtml.png)
+   ![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/26editphphtml.png)
 
 3. Hasil Output
-   ![App Screenshot](./screnshoot/25HasilEdit.png)
+   ![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/25HasilEdit.png)
 
 ### Menghapus Data
 
 1. Tambah Func baru pada `app/Controllers/Artikel.php` dengan nama **delete($id)**
-   ![App Screenshot](./screnshoot/27DeletePHP.png)
+    ![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/27DeletePHP.png)
 2. Hasil Output "P" terhapus
-   ![App Screenshot](./screnshoot/25HasilAdd1.png)
-   ![App Screenshot](./screnshoot/25HasilDelete.png)
+   ![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/25HasilAdd1.png)
+   ![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/25HasilDelete.png)
 
 # Praktikum 3
 
 ### Membuat Class View Cell
 
 Membuat Direktori Cells di dalam `app` lalu buat file `Artikel.php` pada `app/Cells`
-![App Screenshot](./screnshoot/28aViewCels.png)
+ ![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/28aViewCels.png)
 
 ### Membuat View untuk View Cells
 
 1. Lakukan perubahan field pada database dengan menambahkan tanggal agar dapat mengambil data artikel terbaru
-   ![App Screenshot](./screnshoot/29aMembuatdatabaru.png)
+   ![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/29aMembuatdatabaru.png)
 2. Buat folder component di `app/Views` yang didalamnya berisi `artikel_katgori.php & artikel_terkini.php`
-   ![App Screenshot](./screnshoot/29bMembuatArtikelTerkini.png)
+   ![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/29bMembuatArtikelTerkini.png)
 3. Isikan code di dalam file `artikel_terkini.php`
-   ![App Screenshot](./screnshoot/29c.png)
+   ![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/29c.png)
 4. Modifikasi `app/Views/layout/main.php`
-   ![App Screenshot](./screnshoot/29dModifikasiLayout.png)
+   ![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/29dModifikasiLayout.png)
 
 ### Mengubah Views Cells agar Menampilkan Kategori tertentu
 
 1. Menambahkan data baru / column baru untuk kategori
-   ![App Screenshot](./screnshoot/29dMembuatColumnDataKategori.png)
+   ![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/29dMembuatColumnDataKategori.png)
 2. Modifikasi model di `app/Models/ArtikelModel.php
-   ![App Screenshot](./screnshoot/30aModifikasiArtikelMoels.png)
+   ![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/30aModifikasiArtikelMoels.png)
 3. Membuat File `ArtikelKategori.php` baru pada folder `app/Cells`
-   ![App Screenshot](./screnshoot/30cMembuatFileArtikelKategori.png)
+   ![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/30cMembuatFileArtikelKategori.png)
 4. Membuat file `artikel_kategori.php` baru pada folder `app/Views/components`.
-   ![App Screenshot](./screnshoot/30dMembuatartikel_kategori.php.png)
+   ![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/30dMembuatartikel_kategori.php.png)
 5. Modifikasi code di file `app/Views/layout/main.php`
-   ![App Screenshot](./screnshoot/30dModifLyout.php.png)
+   ![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/30dModifLyout.php.png)
 6. Tambahkan code berikut di file `app/Config/Routes.php`
-   ![App Screenshot](./screnshoot/30eTambahRoutes.png)
+   ![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/30eTambahRoutes.png)
 7. Tambah Method kategori controller di `app/Controllers/Home.php`
-   ![App Screenshot](./screnshoot/30fModifHome.php.png)
+    ![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/30fModifHome.php.png)
 8. Hasil Output
-   ![App Screenshot](./screnshoot/LASSTTTT.png)
+   ![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/LASSTTTT.png)
