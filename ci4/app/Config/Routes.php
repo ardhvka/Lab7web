@@ -14,8 +14,9 @@ $routes->get('page/about', 'Page::about',);
 $routes->get('page/contact', 'Page::contact');
 
 
-$routes->get('admin', 'Artikel::admin_index');
+$routes->get('admin/artikel', 'Artikel::admin_index', ['filter' => 'auth']);
 $routes->add('admin/add', 'Artikel::add');
 $routes->add('admin/edit/(:num)', 'Artikel::edit/$1');
 $routes->get('admin/delete/(:any)', 'Artikel::delete/$1');
 $routes->get('/page/kategori/(:segment)', 'Page::kategori/$1');
+$routes->match(['get', 'post'], 'user/login', 'User::login');
