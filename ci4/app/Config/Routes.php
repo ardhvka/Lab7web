@@ -15,6 +15,8 @@ $routes->get('page/contact', 'Page::contact');
 
 
 $routes->get('admin/artikel', 'Artikel::admin_index', ['filter' => 'auth']);
+$routes->get('admin', 'Artikel::admin_index', ['filter' => 'auth']);
+$routes->get('admin/edit', 'Artikel::edit');
 $routes->add('admin/add', 'Artikel::add');
 $routes->add('admin/edit/(:num)', 'Artikel::edit/$1');
 $routes->get('admin/delete/(:any)', 'Artikel::delete/$1');

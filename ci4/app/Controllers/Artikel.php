@@ -9,11 +9,16 @@ class Artikel extends BaseController
     public function admin_index()
     {
         $title = 'Daftar Artikel';
+        $q = $this->request->getVar('q') ?? '';
         $model = new ArtikelModel();
-        $artikel = $model->findAll();
-        return view('admin_index', compact('artikel', 'title'));
+        $data = [
+            'title' => $title,
+            'q' => $q,
+            'artikel' => $model->like('judul', $q)->paginate(5), # data dibatasi 10 record per halaman
+            'pager' => $model->pager,
+        ];
+        return view('artikel/admin_index', $data);
     }
-
     public function add()
     {
         // validasi data.
@@ -36,7 +41,7 @@ class Artikel extends BaseController
         return view('add', compact('title'));
     }
 
-    public function edit($id)
+    public function edit($id = null)
     {
         $artikel = new ArtikelModel();
 
@@ -66,4 +71,5 @@ class Artikel extends BaseController
         $artikel->delete($id);
         return redirect('admin');
     }
+    
 }

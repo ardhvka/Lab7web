@@ -134,6 +134,16 @@ nav a:hover {
   width: 640px;
   padding: 20px;
 }
+#content-main a {
+  color: #212529 !important;
+  text-decoration: none;
+}
+
+#content-main a:hover {
+  color: #0d6efd !important;
+  text-decoration: underline;
+}
+
 /* sidebar area */
 #sidebar {
   float: left;
@@ -179,7 +189,7 @@ nav a:hover {
 footer {
   clear: both;
   background-color: #10375c;
-  padding: 15px;
+  padding: 1rem;
   color: #eee;
 }
 /* box */
