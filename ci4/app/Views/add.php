@@ -36,7 +36,7 @@
             <h4 class="mb-0"><?= $title; ?></h4>
         </div>
         <div class="card-body">
-            <form action="" method="post">
+            <form action="" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="judul" class="form-label">Judul Artikel</label>
                     <input type="text" class="form-control" id="judul" name="judul" placeholder="Masukkan judul artikel" required>
@@ -50,6 +50,12 @@
                 <div class="mb-3">
                     <label for="isi" class="form-label">Isi Artikel</label>
                     <textarea class="form-control" id="isi" name="isi" rows="8" placeholder="Tulis isi artikel di sini..." required></textarea>
+                </div>
+
+                <!-- Tambahan input gambar -->
+                <div class="mb-3">
+                    <label for="gambar" class="form-label">Upload Gambar</label>
+                    <input class="form-control" type="file" id="gambar" name="gambar" accept="image/*">
                 </div>
 
                 <div class="d-grid">

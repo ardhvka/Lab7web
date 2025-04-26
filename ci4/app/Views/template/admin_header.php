@@ -18,13 +18,12 @@
   <div class="row">
    <!-- Navbar -->
     <nav class="navbar navbar-expand-md px-4 mb-4">
-        <div class="container-fluid px-0">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#adminNavbar" aria-controls="adminNavbar" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <div class="container-fluid px-0 ">
+            <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#adminNavbar" aria-controls="adminNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon text-white"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="adminNavbar">
-            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0 text-white">
                 <li class="nav-item">
                 <a class="nav-link text-white" href="<?= base_url('/admin'); ?>">Dashboard</a>
                 </li>

@@ -27,12 +27,17 @@ class Artikel extends BaseController
         $isDataValid = $validation->withRequest($this->request)->run();
 
         if ($isDataValid) {
+
+            $file = $this->request->getFile('gambar');
+            $file->move(ROOTPATH . 'public/gambar');
+
             $artikel = new ArtikelModel();
             $artikel->insert([
                 'judul' => $this->request->getPost('judul'),
                 'kategori' => $this->request->getPost('kategori'),
                 'isi' => $this->request->getPost('isi'),
                 'slug' => url_title($this->request->getPost('judul')),
+                'gambar' => $file->getName(),
             ]);
             return redirect('admin/add');
         }
@@ -69,6 +74,12 @@ class Artikel extends BaseController
     {
         $artikel = new ArtikelModel();
         $artikel->delete($id);
+        // Reset AUTO_INCREMENT berdasarkan ID terakhir
+        $db = \Config\Database::connect();
+        $query = $db->query("SELECT MAX(id) AS max_id FROM artikel")->getRow();
+        $nextId = ($query->max_id ?? 0) + 1;
+        $db->query("ALTER TABLE artikel AUTO_INCREMENT = $nextId");
+        
         return redirect('admin');
     }
     
