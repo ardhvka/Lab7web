@@ -242,3 +242,86 @@ Membuat Direktori Cells di dalam `app` lalu buat file `Artikel.php` pada `app/Ce
     ![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/30fModifHome.php.png)
 8. Hasil Output
    ![image alt](https://github.com/ardhvka/Lab7web/blob/5c0754a252edb3a3fdab76d6dcb838fb5384336e/ci4/screnshoot/LASSTTTT.png)
+
+# Praktikum 4 
+
+### Modul Login
+
+  1. Buat Table Baru
+     ![image alt](https://github.com/ardhvka/Lab7web/blob/013987ca6364b81a3ce063e03c6ce6119f1cd83f/ci4/screnshoot/31a.BuatTabel.png)
+  
+  2. Membuat Model User
+     Buat file baru pada direktori `app/Models` dengan nama `UserModel.php`
+     ![image alt](https://github.com/ardhvka/Lab7web/blob/013987ca6364b81a3ce063e03c6ce6119f1cd83f/ci4/screnshoot/31b.BuatModelUser.png)
+  
+  3. Membuat Controller User
+     Buat Controller baru dengan nama `User.php` pada direkdirektori app/Controllers. Kemudian tambahkan method **index()** untuk
+     menampilkan daftar user dan method **login()** untuk proses login
+     ![image alt](https://github.com/ardhvka/Lab7web/blob/013987ca6364b81a3ce063e03c6ce6119f1cd83f/ci4/screnshoot/31c.BuatUser.png)
+     ![image alt](https://github.com/ardhvka/Lab7web/blob/013987ca6364b81a3ce063e03c6ce6119f1cd83f/ci4/screnshoot/31d.BuatUser2.png)
+  
+  4. Membuat Halaman Login
+     Buat direktori baru pada `app/Views` dengan nama `user` kemudian buat file di dalamnya dengan nama `login.php`
+     lalu tambahkan code berikut ini
+     ![image alt](https://github.com/ardhvka/Lab7web/blob/013987ca6364b81a3ce063e03c6ce6119f1cd83f/ci4/screnshoot/32a.BuatHalamanLogin.png)
+  
+  5. Membuat Database Seeder
+     Database seeder digunakan untuk membuat data dummy. Untuk keperluan ujicoba modul
+     login, kita perlu memasukkan data user dan password kedaalam database. Untuk itu buat
+     database seeder untuk tabel user. Buka CLI, kemudian tulis perintah berikut:
+  
+     **php spark make:seeder UserSeeder**
+  
+     Selanjutnya, buka file `UserSeeder.php` yang berada di lokasi direktori
+     `/app/Database/Seeds/UserSeeder.php` kemudian isi dengan kode berikut:
+     ![image alt](https://github.com/ardhvka/Lab7web/blob/013987ca6364b81a3ce063e03c6ce6119f1cd83f/ci4/screnshoot/32b.BuatDataSeeder.png)
+  
+     Selanjutnya buka kembali Terminal atau CLI dengan shortcut **ctrl+Shift+`** lalu ketikan perintah berikut
+     
+     ``php spark db:seed UserSeeder``
+  
+     Lakukan uji coba login
+     Buka url `http://localhost:8080/user/login`
+     ![image alt](https://github.com/ardhvka/Lab7web/blob/013987ca6364b81a3ce063e03c6ce6119f1cd83f/ci4/screnshoot/33.Hasil.png)
+  
+  7. Menambahkan Auth Filter
+     Buat file untuk halaman admin dengan nama `Auth.php` pada `app/Filters` lalu isi kode ini
+     ![image alt](https://github.com/ardhvka/Lab7web/blob/013987ca6364b81a3ce063e03c6ce6119f1cd83f/ci4/screnshoot/34a.TambahkanAuth.png)
+  
+  8. Buka `app/Config/Filters.php` untuk menambahkan kode berikut ini
+     ![image alt}](https://github.com/ardhvka/Lab7web/blob/013987ca6364b81a3ce063e03c6ce6119f1cd83f/ci4/screnshoot/34b.TambahkanAuthPadaFilters.png)
+  
+  9. Buka `app/Config/Routes.php` kemudian ubah routes menjadi seperti ini
+     ![image alt](https://github.com/ardhvka/Lab7web/blob/013987ca6364b81a3ce063e03c6ce6119f1cd83f/ci4/screnshoot/35a.UbahRoutes.png)
+  
+  10. Tambahkan Function Logout pada app/Controller/User.php
+     ![image alt](https://github.com/ardhvka/Lab7web/blob/013987ca6364b81a3ce063e03c6ce6119f1cd83f/ci4/screnshoot/35b.TambahFuncLogout.png)
+
+  11. Hasil
+      ![image alt](https://github.com/ardhvka/Lab7web/blob/013987ca6364b81a3ce063e03c6ce6119f1cd83f/ci4/screnshoot/33.Hasil.png)
+     
+# Praktikum 5
+
+## Pagination & Search Bar
+
+  1. Buka `app/Controller/Artikel.php` untuk memodifikasi codingan berikut ini
+      ![image alt](https://github.com/ardhvka/Lab7web/blob/013987ca6364b81a3ce063e03c6ce6119f1cd83f/ci4/screnshoot/35a.EditAdminIndex.png)
+
+     Kemudian buka file views/artikel/admin_index.php dan tambahkan kode berikut dibawah deklarasi tabel data.
+     
+     `<?= $pager->links(); ?>`
+
+  3. Untuk membuat Search Bar buka kembali `app/Controller/Artikel.php` lalu modifikasi codingan berikut ini
+      ![image alt](https://github.com/ardhvka/Lab7web/blob/013987ca6364b81a3ce063e03c6ce6119f1cd83f/ci4/screnshoot/35a.EditAdminIndex.png)
+
+  4. Buka `app/Views/artikel/admin_index.php` lalu tambahkan codingan berikut
+      ![image alt](https://github.com/ardhvka/Lab7web/blob/013987ca6364b81a3ce063e03c6ce6119f1cd83f/ci4/screnshoot/38.tambahSearch.png)
+
+  5. Tambahkan link pager pada bagian bawah deklarasi tabel seperti berikut ini
+      ![image alt](https://github.com/ardhvka/Lab7web/blob/013987ca6364b81a3ce063e03c6ce6119f1cd83f/ci4/screnshoot/37.TambahPaginationDibawahHtml.png)
+
+  6. Hasil
+
+      ![image alt](https://github.com/ardhvka/Lab7web/blob/013987ca6364b81a3ce063e03c6ce6119f1cd83f/ci4/screnshoot/36.Hasil.png)
+
+   
