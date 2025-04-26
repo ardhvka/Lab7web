@@ -324,4 +324,23 @@ Membuat Direktori Cells di dalam `app` lalu buat file `Artikel.php` pada `app/Ce
 
       ![image alt](https://github.com/ardhvka/Lab7web/blob/013987ca6364b81a3ce063e03c6ce6119f1cd83f/ci4/screnshoot/36.Hasil.png)
 
-   
+# Praktikum 6
+
+## Upload File Gambar
+  1. Buka direktori `app/Controller/Artikel.php` lalu edit code menjadi seperti ini
+     
+     ![image alt](https://github.com/ardhvka/Lab7web/blob/d60c04447806713984dd9488fbe12be5c1f83c03/ci4/screnshoot/39.TambahFuncGambar.png)
+
+  2. Lalu pada `app/Views/add.php` tambahkan kode berikut
+
+      ![image alt](https://github.com/ardhvka/Lab7web/blob/d60c04447806713984dd9488fbe12be5c1f83c03/ci4/screnshoot/40.editAddphp.png)
+
+      ![image alt](https://github.com/ardhvka/Lab7web/blob/d60c04447806713984dd9488fbe12be5c1f83c03/ci4/screnshoot/41.tambahKolomFormgambar.png)
+
+3. Hasil
+
+  ![image alt](https://github.com/ardhvka/Lab7web/blob/d60c04447806713984dd9488fbe12be5c1f83c03/ci4/screnshoot/42.Hasil1.png)
+
+  ![image alt](https://github.com/ardhvka/Lab7web/blob/d60c04447806713984dd9488fbe12be5c1f83c03/ci4/screnshoot/42.Hasil2.png)
+
+  ![image alt](https://github.com/ardhvka/Lab7web/blob/d60c04447806713984dd9488fbe12be5c1f83c03/ci4/screnshoot/43.Hasil3.png)
