@@ -42,9 +42,14 @@
                     <input type="text" class="form-control" id="judul" name="judul" placeholder="Masukkan judul artikel" required>
                 </div>
 
-                <div class="mb-3">
-                    <label for="kategori" class="form-label">Kategori</label>
-                    <input type="text" class="form-control" id="kategori" name="kategori" placeholder="Contoh: Teknologi, Pendidikan" required>
+               <div class="mb-3">
+                    <label for="kategori_id" class="form-label">Kategori</label>
+                    <select name="kategori_id" id="kategori_id" class="form-select" required>
+                        <option value="">-- Pilih Kategori --</option>
+                        <?php foreach ($kategori as $k): ?>
+                            <option value="<?= $k['id_kategori']; ?>"><?= $k['nama_kategori']; ?></option>
+                        <?php endforeach; ?>
+                    </select>
                 </div>
 
                 <div class="mb-3">

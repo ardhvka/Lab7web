@@ -1,13 +1,9 @@
-<?= $this->section('content-kategori') ?>
-
-<ul>
+<ul class="list-group">
     <?php foreach ($kategoriList as $kategori): ?>
-        <li>
-            <a style="font-size: 0.7rem;" href="<?= base_url('/page/home/' . urlencode($kategori['kategori'])) ?>">
-                <?= ucfirst($kategori['kategori']) ?>
+        <li class="list-group-item">
+            <a href="<?= base_url('page/artikel/kategori/' . $kategori['id_kategori']); ?>">
+                <?= esc($kategori['nama_kategori']); ?>
             </a>
         </li>
     <?php endforeach; ?>
 </ul>
-
-<?= $this->endSection() ?>
