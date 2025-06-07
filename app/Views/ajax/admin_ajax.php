@@ -1,117 +1,178 @@
 <?= $this->include('template/admin_header'); ?>
 
-<!-- Bootstrap CSS -->
+<!-- Bootstrap 5 -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
 <div class="container my-4">
-    <h1>Data Artikel</h1>
-    
-    <!-- Search Form Section -->
+    <h1>Admin Dashboard</h1>
+
+    <!-- Search Form -->
     <div class="row justify-content-center mb-4">
-        <div class="col-md-6 col-sm-8 col-12">
-            <form method="get" class="d-flex" role="search" id="searchForm">
-                <input type="text" id="searchInput" name="q" class="form-control me-2" placeholder="Cari data" aria-label="Cari data">
-                <button type="button" id="searchBtn" class="btn btn-primary">Cari</button>
+        <div class="col-md-8">
+            <form id="search-form" class="row g-2">
+                <div class="col-md-5">
+                    <input type="text" name="q" id="search-box" value="<?= isset($q) ? htmlspecialchars($q) : ''; ?>" class="form-control" placeholder="Cari judul artikel">
+                </div>
+               <div class="col-md-4">
+                    <select name="kategori_id" id="category-filter" class="form-select">
+                        <option value="">Semua Kategori</option>
+                        <?php if (isset($kategori) && is_array($kategori)): ?>
+                            <?php foreach ($kategori as $k): ?>
+                                <option value="<?= $k['id_kategori']; ?>" <?= ($kategori_id == $k['id_kategori']) ? 'selected' : ''; ?>>
+                                    <?= $k['nama_kategori']; ?>
+                                </option>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <option disabled>Data kategori tidak tersedia</option>
+                        <?php endif; ?>
+
+                    </select>
+                </div>
+
+                <div class="col-md-3">
+                    <button type="submit" class="btn btn-primary w-100">Cari</button>
+                </div>
             </form>
         </div>
     </div>
 
+    <!-- Article Table -->
     <div class="table-responsive">
         <table class="table table-striped table-bordered shadow-sm" id="artikelTable">
             <thead class="table-secondary">
                 <tr>
                     <th>ID</th>
                     <th>Judul</th>
+                    <th>Kategori</th>
                     <th>Status</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
-                <!-- Data akan diisi oleh AJAX -->
+                <!-- Akan diisi via AJAX -->
             </tbody>
         </table>
     </div>
+
+    <!-- Pagination -->
+    <div id="pagination-container" class="mt-3"></div>
 </div>
 
-<script src="<?= base_url('/assets/js/jquery-3.7.1.js') ?>"></script>
+<script src="<?= base_url('assets/js/jquery-3.7.1.js') ?>"></script>
+
 <script>
 $(document).ready(function () {
+    const articleContainer = $('#artikelTable tbody');
+    const paginationContainer = $('#pagination-container');
+    const searchForm = $('#search-form');
+    const searchBox = $('#search-box');
+    const categoryFilter = $('#category-filter');
+
     function showLoadingMessage() {
-        $('#artikelTable tbody').html('<tr><td colspan="4">Loading data...</td></tr>');
+        articleContainer.html('<tr><td colspan="5" class="text-center">Loading data...</td></tr>');
     }
 
-    function loadData(query = '') {
+    function fetchData(url) {
         showLoadingMessage();
-
         $.ajax({
-            url: "<?= base_url('ajax/getData') ?>",
-            method: "GET",
-            dataType: "json",
-            data: { q: query }, // kirim parameter pencarian ke server
+            url: url,
+            type: 'GET',
+            dataType: 'json',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            },
             success: function (data) {
-                var tableBody = "";
-
-                if (data.length === 0) {
-                    tableBody = '<tr><td colspan="4" class="text-center">Belum ada data.</td></tr>';
-                } else {
-                    for (var i = 0; i < data.length; i++) {
-                        var row = data[i];
-                        tableBody += '<tr>';
-                        tableBody += '<td>' + row.id + '</td>';
-
-                        var isiExcerpt = row.isi ? row.isi.substring(0, 50) : '';
-                        tableBody += '<td><b>' + row.judul + '</b><p><small>' + isiExcerpt + '</small></p></td>';
-
-                        tableBody += '<td>' + (row.status ? row.status : '---') + '</td>';
-
-                        tableBody += '<td>';
-                        tableBody += '<a href="<?= base_url('artikel/edit/') ?>' + row.id + '" class="btn btn-outline-primary btn-sm me-1">Edit</a>';
-                        tableBody += '<a href="#" class="btn btn-outline-danger btn-sm btn-delete" data-id="' + row.id + '">Delete</a>';
-                        tableBody += '</td>';
-
-                        tableBody += '</tr>';
-                    }
-                }
-                $('#artikelTable tbody').html(tableBody);
+                renderArticles(data.artikel);
+                renderPagination(data.pager, data.q, data.kategori_id);
+            },
+            error: function() {
+                articleContainer.html('<tr><td colspan="5" class="text-center text-danger">Gagal mengambil data.</td></tr>');
+                paginationContainer.html('');
             }
         });
     }
 
-    loadData();
+    function renderArticles(articles) {
+        let html = '';
 
-    // Search button click handler
-    $('#searchBtn').on('click', function () {
-        var query = $('#searchInput').val();
-        loadData(query);
-    });
-
-    // Optional: Enter key on search input triggers search
-    $('#searchInput').on('keypress', function (e) {
-        if (e.which == 13) {
-            e.preventDefault();
-            $('#searchBtn').click();
-        }
-    });
-
-    // Delete button handler
-    $(document).on('click', '.btn-delete', function (e) {
-        e.preventDefault();
-        var id = $(this).data('id');
-
-        if (confirm('Apakah Anda yakin ingin menghapus artikel ini?')) {
-            $.ajax({
-                url: "<?= base_url('ajax/delete/') ?>" + id,
-                method: "DELETE",
-                success: function () {
-                    var query = $('#searchInput').val();
-                    loadData(query);
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-                    alert('Error deleting article: ' + textStatus + ' - ' + errorThrown);
-                }
+        if (articles.length > 0) {
+            articles.forEach(article => {
+                const excerpt = article.isi ? article.isi.substring(0, 50) : '';
+                html += `
+                    <tr>
+                        <td>${article.id}</td>
+                        <td>
+                            <b>${article.judul}</b>
+                            <p><small>${excerpt}</small></p>
+                        </td>
+                        <td>${article.nama_kategori}</td>
+                        <td>${article.status || '-'}</td>
+                        <td>
+                            <a href="/admin/artikel/edit/${article.id}" class="btn btn-outline-primary btn-sm me-1">Ubah</a>
+                            <a href="/admin/artikel/delete/${article.id}" class="btn btn-outline-danger btn-sm" onclick="return confirm('Yakin menghapus data?');">Hapus</a>
+                        </td>
+                    </tr>
+                `;
             });
+        } else {
+            html = '<tr><td colspan="5" class="text-center">Tidak ada data.</td></tr>';
+        }
+
+        articleContainer.html(html);
+    }
+
+    function renderPagination(pager, q, kategori_id) {
+        if (!pager || !pager.links || pager.links.length === 0) {
+            paginationContainer.html('');
+            return;
+        }
+
+        let html = '<nav><ul class="pagination justify-content-center">';
+        pager.links.forEach(link => {
+            let url = link.url ? `${link.url}&q=${encodeURIComponent(q)}&kategori_id=${encodeURIComponent(kategori_id)}` : '#';
+            html += `
+                <li class="page-item ${link.active ? 'active' : ''}">
+                    <a class="page-link" href="${url}">${link.title}</a>
+                </li>
+            `;
+        });
+        html += '</ul></nav>';
+        paginationContainer.html(html);
+    }
+
+    // Tangani klik pagination supaya AJAX, tidak reload page
+    $(document).on('click', '#pagination-container .page-link', function(e) {
+        e.preventDefault();
+        const url = $(this).attr('href');
+        if (url && url !== '#') {
+            fetchData(url);
         }
     });
+
+    // Saat submit form search
+    searchForm.on('submit', function (e) {
+        e.preventDefault();
+        const q = searchBox.val();
+        const kategori_id = categoryFilter.val();
+        fetchData(`/admin/ajax/getData?q=${q}&kategori_id=${kategori_id}`);
+    });
+
+    // Saat ganti kategori, trigger search
+    categoryFilter.on('change', function () {
+        searchForm.trigger('submit');
+    });
+
+       // Event untuk pagination ajax
+    $(document).on('click', '#pagination-container .page-link', function(e) {
+        e.preventDefault();
+        const url = $(this).attr('href');
+        if (url && url !== '#') {
+            fetchData(url);
+        }
+    });
+
+    // Initial load
+    fetchData('/admin/ajax/getData');
 });
 </script>
 

@@ -3,14 +3,14 @@
 namespace App\Cells;
 
 use CodeIgniter\View\Cells\Cell;
-use App\Models\ArtikelModel;
+use App\Models\KategoriModel;
 
 class ArtikelKategori extends Cell
 {
     public function render(array $params = []): string
     {
-        $model = new ArtikelModel();
-        $kategoriList = $model->select('kategori')->distinct()->findAll();
+        $kategoriModel = new KategoriModel();
+        $kategoriList = $kategoriModel->findAll();
 
         return view('components/artikel_kategori', ['kategoriList' => $kategoriList]);
     }
