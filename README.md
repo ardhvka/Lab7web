@@ -386,3 +386,19 @@ Membuat Direktori Cells di dalam `app` lalu buat file `Artikel.php` pada `app/Ce
 
   2. routes ``$routes->get('ajax/getData', 'AjaxController::getData');``
   ![image alt](https://github.com/ardhvka/Lab7web/blob/bf2178571f69c16c72f39e08aee80e4311a7e4eb/ci4/screnshoot/ajax14.png)
+
+# Praktikum 9
+
+### Membuat Ajax Search Bar & Pagination
+
+  1. Edit Method *admin_index()* seperti ini
+    ![image alt](https://github.com/ardhvka/Lab7web/blob/0d8b3a144ca9f7719aa3dc1782baddd97558fd01/ci4/screnshoot/ajax15.png)
+
+  2. Edit file ``admin_ajax.php`` menjadi seperti ini
+    ![image alt](https://github.com/ardhvka/Lab7web/blob/0d8b3a144ca9f7719aa3dc1782baddd97558fd01/ci4/screnshoot/ajax16.png)
+
+  3. Hasil
+     ![image alt](https://github.com/ardhvka/Lab7web/blob/0d8b3a144ca9f7719aa3dc1782baddd97558fd01/ci4/screnshoot/ajax17.png)
+
+     ![image alt](https://github.com/ardhvka/Lab7web/blob/0d8b3a144ca9f7719aa3dc1782baddd97558fd01/ci4/screnshoot/ajax18.png)
+  
