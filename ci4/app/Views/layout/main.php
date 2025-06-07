@@ -33,7 +33,9 @@
         <div class="row">
             <!-- Main Content -->
             <main id="content-main" class="col-lg-8 col-md-12 mb-4">
-                <?= $this->renderSection('content') ?>
+                <div class="p-3 border rounded bg-white shadow-sm">
+                    <?= $this->renderSection('content') ?>
+                </div>
             </main>
             <!-- Sidebar -->
             <aside class="col-lg-4 col-md-12">
