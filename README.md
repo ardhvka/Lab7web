@@ -344,3 +344,45 @@ Membuat Direktori Cells di dalam `app` lalu buat file `Artikel.php` pada `app/Ce
   ![image alt](https://github.com/ardhvka/Lab7web/blob/d60c04447806713984dd9488fbe12be5c1f83c03/ci4/screnshoot/42.Hasil2.png)
 
   ![image alt](https://github.com/ardhvka/Lab7web/blob/d60c04447806713984dd9488fbe12be5c1f83c03/ci4/screnshoot/43.Hasil3.png)
+
+# Praktikum 7
+
+### Membuat Tabel baru
+ ![image alt](https://github.com/ardhvka/Lab7web/blob/bf2178571f69c16c72f39e08aee80e4311a7e4eb/ci4/screnshoot/ajax1.png)
+
+### Relasi Antar Kategori
+ ![image alt](https://github.com/ardhvka/Lab7web/blob/bf2178571f69c16c72f39e08aee80e4311a7e4eb/ci4/screnshoot/ajax2.png)
+
+### Testing Sessions
+  1. Menampilkan Daftar Artikel 
+ ![image alt](https://github.com/ardhvka/Lab7web/blob/bf2178571f69c16c72f39e08aee80e4311a7e4eb/ci4/screnshoot/ajax3.png)
+  2. Pada Halaman Admin
+ ![image alt](https://github.com/ardhvka/Lab7web/blob/bf2178571f69c16c72f39e08aee80e4311a7e4eb/ci4/screnshoot/ajax4.png)
+  3.Menambahkan Artikel Baru dan Kategori Baru
+ ![image alt](https://github.com/ardhvka/Lab7web/blob/bf2178571f69c16c72f39e08aee80e4311a7e4eb/ci4/screnshoot/ajax5.png)
+  4. Artikel Baru Berhasil Ditambahkan
+ ![image alt](https://github.com/ardhvka/Lab7web/blob/bf2178571f69c16c72f39e08aee80e4311a7e4eb/ci4/screnshoot/ajax6.png)
+  5. Artikel dan Kategori baru berhasil tampil
+ ![image alt](https://github.com/ardhvka/Lab7web/blob/bf2178571f69c16c72f39e08aee80e4311a7e4eb/ci4/screnshoot/ajax7.png)
+ ![image alt](https://github.com/ardhvka/Lab7web/blob/bf2178571f69c16c72f39e08aee80e4311a7e4eb/ci4/screnshoot/ajax8.png)
+
+# Praktikum 8
+
+### Menambahkan Pustaka jQuery
+ ![image alt](https://github.com/ardhvka/Lab7web/blob/bf2178571f69c16c72f39e08aee80e4311a7e4eb/ci4/screnshoot/ajax9.png)
+
+### Membuat Ajax Controller
+ ![image alt](https://github.com/ardhvka/Lab7web/blob/bf2178571f69c16c72f39e08aee80e4311a7e4eb/ci4/screnshoot/ajax10.png)
+
+### Make View
+ ![image alt](https://github.com/ardhvka/Lab7web/blob/bf2178571f69c16c72f39e08aee80e4311a7e4eb/ci4/screnshoot/ajax11.png)
+
+ ### Make Routes
+  ![image alt](https://github.com/ardhvka/Lab7web/blob/bf2178571f69c16c72f39e08aee80e4311a7e4eb/ci4/screnshoot/ajax12.png)
+
+### Hasil 
+  1. routes ``$routes->get('admin/ajax', 'AjaxController::index');``
+ ![image alt](https://github.com/ardhvka/Lab7web/blob/bf2178571f69c16c72f39e08aee80e4311a7e4eb/ci4/screnshoot/ajax13.png)
+
+  2. routes ``$routes->get('ajax/getData', 'AjaxController::getData');``
+  ![image alt](https://github.com/ardhvka/Lab7web/blob/bf2178571f69c16c72f39e08aee80e4311a7e4eb/ci4/screnshoot/ajax14.png)
