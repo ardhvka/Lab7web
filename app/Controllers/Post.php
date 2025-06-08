@@ -55,30 +55,30 @@ class Post extends ResourceController
 
     // Perbarui artikel
    public function update($id = null)
-  {
-      $model = new ArtikelModel();
+    {
+        $model = new ArtikelModel();
 
-      $data = [
-          'judul' => $this->request->getVar('judul'),
-          'isi'   => $this->request->getVar('isi'),
-      ];
+        $data = [
+            'judul' => $this->request->getVar('judul'),
+            'isi'   => $this->request->getVar('isi'),
+        ];
 
-      if ($model->find($id)) {
-          $model->update($id, $data);
+        if ($model->find($id)) {
+            $model->update($id, $data);
 
-          $response = [
-              'status'  => 200,
-              'error'   => null,
-              'messages' => [
-                  'success' => 'Data artikel berhasil diubah.'
-              ]
-          ];
+            $response = [
+                'status'  => 200,
+                'error'   => null,
+                'messages' => [
+                    'success' => 'Data artikel berhasil diubah.'
+                ]
+            ];
 
-          return $this->respond($response);
-      } else {
-          return $this->failNotFound('Data tidak ditemukan.');
-      }
-  }
+            return $this->respond($response);
+        } else {
+            return $this->failNotFound('Data tidak ditemukan.');
+        }
+    }
 
 
     // Hapus artikel
