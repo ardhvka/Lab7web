@@ -17,6 +17,7 @@ $routes->get('ajax/getData', 'AjaxController::getData');
 $routes->delete('ajax/delete/(:num)', 'AjaxController::delete/$1');
 $routes->get('admin/ajax', 'AjaxController::index');
 
+$routes->resource('post');
 
 $routes->get('admin/artikel', 'Artikel::admin_index', ['filter' => 'auth']);
 $routes->get('admin', 'Artikel::admin_index', ['filter' => 'auth']);
