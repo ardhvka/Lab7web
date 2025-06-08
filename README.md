@@ -542,3 +542,83 @@ Membuat Direktori Cells di dalam `app` lalu buat file `Artikel.php` pada `app/Ce
    ![image alt](https://github.com/ardhvka/Lab7web/blob/0d8b3a144ca9f7719aa3dc1782baddd97558fd01/ci4/screnshoot/ajax17.png)
 
    ![image alt](https://github.com/ardhvka/Lab7web/blob/0d8b3a144ca9f7719aa3dc1782baddd97558fd01/ci4/screnshoot/ajax18.png)
+
+
+# Praktikum 10
+### API
+  1. Membuat file ``Post.php`` di ``app/Controller`` dengan code seperti ini
+     
+     ![image alt](https://github.com/ardhvka/Lab7web/blob/20ff49b1683647fe53cb587cc9058cbb1412b2b6/screnshoot/Api1.png)
+
+  2. Menambahkan Routes 
+  
+  ``$routes->resource('post'); `` 
+      ![image alt](https://github.com/ardhvka/Lab7web/blob/20ff49b1683647fe53cb587cc9058cbb1412b2b6/screnshoot/Api2.png)
+
+  3.  ![image alt](https://github.com/ardhvka/Lab7web/blob/20ff49b1683647fe53cb587cc9058cbb1412b2b6/screnshoot/Api3.png)
+
+## Testing Rest API 
+
+  1. Buka aplikasi postman dan pilih create new → HTTP Request
+     ![image alt](https://github.com/ardhvka/Lab7web/blob/20ff49b1683647fe53cb587cc9058cbb1412b2b6/screnshoot/Api4.png)
+     
+  2. Menampilkan Semua Data
+     
+     Pilih method GET dan masukkan URL berikut:
+     http://localhost:8080/post
+
+     lalu klik send
+     ![image alt](https://github.com/ardhvka/Lab7web/blob/20ff49b1683647fe53cb587cc9058cbb1412b2b6/screnshoot/Api5.png)
+     ![image alt](https://github.com/ardhvka/Lab7web/blob/20ff49b1683647fe53cb587cc9058cbb1412b2b6/screnshoot/Api6.png)
+
+  3. Mengubah data
+  
+      Untuk mengubah data, silakan ganti method menjadi PUT. Kemudian, masukkan URL artikel
+      yang ingin diubah. Misalnya, ingin mengubah data artikel dengan ID nomor 2, maka masukkan
+      URL berikut:
+     
+      http://localhost:8080/post/1
+     
+      Selanjutnya, pilih tab Body. Kemudian, pilih x-www-form-uriencoded. Masukkan nama
+      atribut tabel pada kolom KEY dan nilai data yang baru pada kolom VALUE. Kalau sudah,
+      klik Send.
+
+      ![image alt](https://github.com/ardhvka/Lab7web/blob/20ff49b1683647fe53cb587cc9058cbb1412b2b6/screnshoot/Api7.png)
+
+     ### Berhasil Diubah
+
+      ![image alt](https://github.com/ardhvka/Lab7web/blob/20ff49b1683647fe53cb587cc9058cbb1412b2b6/screnshoot/Api8.png)
+
+  4. Menambah Data
+     
+      Anda perlu menggunakan method POST untuk menambahkan data baru ke database.
+      Kemudian, masukkan URL berikut:
+     
+      http://localhost:8080/post
+     
+      Pilih tab Body, lalu pilih x-www-form-uriencoded. Masukkan atribut tabel pada kolom KEY
+      dan nilai data baru di kolom VALUE. Jangan lupa, klik Send.
+     
+      ![image alt](https://github.com/ardhvka/Lab7web/blob/20ff49b1683647fe53cb587cc9058cbb1412b2b6/screnshoot/Api9.png)
+     
+     ### Berhasil Ditambahkan
+     
+      ![image alt](https://github.com/ardhvka/Lab7web/blob/20ff49b1683647fe53cb587cc9058cbb1412b2b6/screnshoot/Api9Hasil.png)
+
+  5. Menghapus Data
+      Pilih method DELETE untuk menghapus data. Lalu, masukkan URL spesifik data mana yang
+      ingin di hapus. Misalnya, ingin menghapus data nomor 4, maka URL-nya seperti ini:
+     
+      http://localhost:8080/post/7
+     
+      Langsung Send
+
+       ![image alt](https://github.com/ardhvka/Lab7web/blob/20ff49b1683647fe53cb587cc9058cbb1412b2b6/screnshoot/Api10.png)
+
+      ### Berhasil Terhapus
+     
+      ![image alt](https://github.com/ardhvka/Lab7web/blob/20ff49b1683647fe53cb587cc9058cbb1412b2b6/screnshoot/Api10Hasil.png)
+
+
+
+
