@@ -22,7 +22,6 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link text-white" aria-current="page" href="<?= base_url('/page/home'); ?>">Home</a>
-                    <a class="nav-link text-white" href="<?= base_url('/page/artikel'); ?>">Artikel</a>
                     <a class="nav-link text-white" href="<?= base_url('/page/about'); ?>">About</a>
                     <a class="nav-link text-white" href="<?= base_url('/page/contact'); ?>">Contact</a>
                 </div>

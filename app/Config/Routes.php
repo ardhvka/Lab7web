@@ -9,9 +9,11 @@ $routes->setAutoRoute(false);
 
 $routes->get('/', 'Home::index');
 $routes->get('page/home', 'Home::index');
+$routes->get('page/artikel', 'Page::daftarArtikel');
 $routes->get('page/artikel/(:any)', 'Page::artikel/$1');
 $routes->get('page/about', 'Page::about',);
 $routes->get('page/contact', 'Page::contact');
+
 
 $routes->get('ajax/getData', 'AjaxController::getData');
 $routes->delete('ajax/delete/(:num)', 'AjaxController::delete/$1');

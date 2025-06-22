@@ -14,6 +14,16 @@ class Page extends BaseController
             'content' => 'Halo! Saya adalah seorang web developer.'
         ]);
     }
+    public function daftarArtikel()
+    {
+        $model = new ArtikelModel();
+        $data = [
+            'title'   => 'Daftar Artikel',
+            'artikel' => $model->findAll()
+        ];
+
+        return view('artikel_list', $data);
+    }
 
     public function artikel($slug)
     {

@@ -58,7 +58,8 @@
     <div id="pagination-container" class="mt-3"></div>
 </div>
 
-<script src="<?= base_url('assets/js/jquery-3.7.1.js') ?>"></script>
+<!-- PAKAI CDN agar jQuery tidak 404 -->
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 
 <script>
 $(document).ready(function () {
@@ -85,7 +86,8 @@ $(document).ready(function () {
                 renderArticles(data.artikel);
                 renderPagination(data.pager, data.q, data.kategori_id);
             },
-            error: function() {
+            error: function(xhr) {
+                console.log(xhr.responseText); // debug
                 articleContainer.html('<tr><td colspan="5" class="text-center text-danger">Gagal mengambil data.</td></tr>');
                 paginationContainer.html('');
             }
@@ -94,7 +96,6 @@ $(document).ready(function () {
 
     function renderArticles(articles) {
         let html = '';
-
         if (articles.length > 0) {
             articles.forEach(article => {
                 const excerpt = article.isi ? article.isi.substring(0, 50) : '';
@@ -105,11 +106,11 @@ $(document).ready(function () {
                             <b>${article.judul}</b>
                             <p><small>${excerpt}</small></p>
                         </td>
-                        <td>${article.nama_kategori}</td>
+                        <td>${article.nama_kategori || '-'}</td>
                         <td>${article.status || '-'}</td>
                         <td>
-                            <a href="/admin/artikel/edit/${article.id}" class="btn btn-outline-primary btn-sm me-1">Ubah</a>
-                            <a href="/admin/artikel/delete/${article.id}" class="btn btn-outline-danger btn-sm" onclick="return confirm('Yakin menghapus data?');">Hapus</a>
+                            <a href="<?= base_url('admin/edit') ?>/${article.id}" class="btn btn-outline-primary btn-sm me-1">Ubah</a>
+                            <a href="<?= base_url('admin/delete') ?>/${article.id}" class="btn btn-outline-danger btn-sm" onclick="return confirm('Yakin menghapus data?');">Hapus</a>
                         </td>
                     </tr>
                 `;
@@ -117,7 +118,6 @@ $(document).ready(function () {
         } else {
             html = '<tr><td colspan="5" class="text-center">Tidak ada data.</td></tr>';
         }
-
         articleContainer.html(html);
     }
 
@@ -129,7 +129,7 @@ $(document).ready(function () {
 
         let html = '<nav><ul class="pagination justify-content-center">';
         pager.links.forEach(link => {
-            let url = link.url ? `${link.url}&q=${encodeURIComponent(q)}&kategori_id=${encodeURIComponent(kategori_id)}` : '#';
+            let url = link.url || '#';
             html += `
                 <li class="page-item ${link.active ? 'active' : ''}">
                     <a class="page-link" href="${url}">${link.title}</a>
@@ -140,7 +140,7 @@ $(document).ready(function () {
         paginationContainer.html(html);
     }
 
-    // Tangani klik pagination supaya AJAX, tidak reload page
+    // Tangani klik pagination
     $(document).on('click', '#pagination-container .page-link', function(e) {
         e.preventDefault();
         const url = $(this).attr('href');
@@ -149,30 +149,21 @@ $(document).ready(function () {
         }
     });
 
-    // Saat submit form search
+    // Submit form search
     searchForm.on('submit', function (e) {
         e.preventDefault();
         const q = searchBox.val();
         const kategori_id = categoryFilter.val();
-        fetchData(`/admin/ajax/getData?q=${q}&kategori_id=${kategori_id}`);
+        fetchData(`<?= base_url('ajax/getData') ?>?q=${q}&kategori_id=${kategori_id}`);
     });
 
-    // Saat ganti kategori, trigger search
+    // Ganti kategori otomatis cari
     categoryFilter.on('change', function () {
         searchForm.trigger('submit');
     });
 
-       // Event untuk pagination ajax
-    $(document).on('click', '#pagination-container .page-link', function(e) {
-        e.preventDefault();
-        const url = $(this).attr('href');
-        if (url && url !== '#') {
-            fetchData(url);
-        }
-    });
-
     // Initial load
-    fetchData('/admin/ajax/getData');
+    fetchData("<?= base_url('ajax/getData') ?>");
 });
 </script>
 
