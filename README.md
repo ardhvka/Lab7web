@@ -620,5 +620,22 @@ Membuat Direktori Cells di dalam `app` lalu buat file `Artikel.php` pada `app/Ce
       ![image alt](https://github.com/ardhvka/Lab7web/blob/20ff49b1683647fe53cb587cc9058cbb1412b2b6/screnshoot/Api10Hasil.png)
 
 
+# Praktikum 11
+## Vue JS
+1. Buat Direktori baru baru dengan nama vue
+2. Lalu buat di dalamnya buat file `index.html`
+   ![image alt](https://github.com/ardhvka/Lab7web/blob/b3abc8823bc51bad2b4f232ca8bad913dffc56e6/screnshoot/Screenshot%20(464).png)
+
+3. Lalu di dalam folder `vue` buat folder baru dengan nama `assets` yang didalamnya berisi folder dengan nama `js` & `css`
+4. buat file `app.js` dan letakan di dalam `vue/assets/js`
+   ![image alt](https://github.com/ardhvka/Lab7web/blob/b3abc8823bc51bad2b4f232ca8bad913dffc56e6/screnshoot/Screenshot%20(469).png)
+5. buat file `style.css` dan letakan di dalam `vue/assets/css`
+    ![image alt](https://github.com/ardhvka/Lab7web/blob/b3abc8823bc51bad2b4f232ca8bad913dffc56e6/screnshoot/Screenshot%20(468).png)
+
+## Output 
+
+### Jalankan dengan mengakses link http://localhost/vue/index.html
+
+ ![image alt](https://github.com/ardhvka/Lab7web/blob/b3abc8823bc51bad2b4f232ca8bad913dffc56e6/screnshoot/Screenshot%20(470).png)
 
 
