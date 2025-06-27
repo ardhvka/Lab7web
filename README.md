@@ -639,3 +639,6 @@ Membuat Direktori Cells di dalam `app` lalu buat file `Artikel.php` pada `app/Ce
  ![image alt](https://github.com/ardhvka/Lab7web/blob/b3abc8823bc51bad2b4f232ca8bad913dffc56e6/screnshoot/Screenshot%20(470).png)
 
 
+# LINK YOUTUBE 
+
+https://youtu.be/zEY-TR08v0k?si=rEk7HdSuz-4fbmf4
